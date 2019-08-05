@@ -1,0 +1,13 @@
+protocol_mapping:
+  "*": refgenie
+
+pipelines:
+  refgenie:
+    name: refgenie
+    path: "refgenie build"
+    arguments:
+      "--genome": genome
+      "--asset": asset
+    optional_arguments:
+      "--fasta": fasta
+      "--gtf": gtf

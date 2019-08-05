@@ -1,0 +1,7 @@
+sample_name,genome,asset,fasta,gtf
+.,hg38,fasta,path,
+.,rCRSd,fasta,path,
+.,rCRS,fasta,path,
+.,hg38,ensembl_gtf,,path
+.,hg38,bowtie2,,
+.,mm10,fasta,path,
