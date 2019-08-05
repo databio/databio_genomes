@@ -4,11 +4,17 @@ metadata:
   pipeline_interfaces: refgenie_piface.yaml
 
 constant_attributes:
-  sample_name: "genome_asset"
   protocol: "refgenie"
 
-derived_attributes: [sample_name]
 
-data_sources:
-  genome_asset: "{genome}_{asset}"
+subprojects:
+  derive_sample_name:
+    constant_attributes:
+      sample_name: "genome_asset"
+      protocol: "refgenie"
+
+    derived_attributes: [sample_name]
+
+    data_sources:
+      genome_asset: "{genome}_{asset}"
   

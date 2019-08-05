@@ -1,7 +1,7 @@
 sample_name,genome,asset,fasta,gtf
-.,hg38,fasta,path,
-.,rCRSd,fasta,path,
-.,rCRS,fasta,path,
-.,hg38,ensembl_gtf,,path
-.,hg38,bowtie2,,
-.,mm10,fasta,path,
+hg38_fasta,hg38,fasta,path,
+rCRSd_fasta,rCRSd,fasta,path,
+rCRS_fasta,rCRS,fasta,path,
+hg38_ensembl_gtf,hg38,ensembl_gtf,,path
+hg38_bowtie2,hg38,bowtie2,,
+mm10_fasta,mm10,fasta,path,
