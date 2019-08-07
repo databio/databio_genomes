@@ -8,6 +8,9 @@ constant_attributes:
 
 
 subprojects:
+  fasta:
+    metadata:
+      sample_table: genomes_fasta.csv
   derive_sample_name:
     constant_attributes:
       sample_name: "genome_asset"

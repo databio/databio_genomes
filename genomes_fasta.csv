@@ -1,0 +1,6 @@
+sample_name,genome,asset,fasta,gtf
+hg38_fasta,hg38,fasta,/project/shefflab/genomes/hg38/hg38.fa.gz,
+hg19_fasta,hg19,fasta,/project/shefflab/genomes/hg19/hg19.fa.gz,
+rCRSd_fasta,rCRSd,fasta,/project/shefflab/genomes/rCRSd/rCRSd.fa.gz,
+rn6_fasta,rn6,fasta,/project/shefflab/genomes/rn6/rn6.fa.gz,
+mm10_fasta,mm10,fasta,/project/shefflab/genomes/mm10/mm10.fa.gz,
