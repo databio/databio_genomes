@@ -6,7 +6,7 @@ Since most of the assets require the `fasta` asset one needs to make sure the `f
 
 1. Run the `fasta` subproject first (points to `genomes_fasta.csv` instead of `genomes.csv`) to build just the `fasta` assets
 	```
-	looper run genomes_pep.yaml --subproject fasta
+	looper run genomes_pep.yaml --sp fasta
 	```
 1. Build the rest of the assets:
 	```
