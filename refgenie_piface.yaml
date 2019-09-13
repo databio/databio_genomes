@@ -13,5 +13,5 @@ pipelines:
       "--gencode-gtf": gencode_gtf
       "--gencode-gtf": local_gencode_gtf
       "--ensembl-gtf": local_ensembl_gtf
-      "--ensembl-rb": local_ensembl_rb
+      "--gff": local_ensembl_rb
       
