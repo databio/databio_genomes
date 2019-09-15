@@ -35,7 +35,7 @@ subprojects:
 
   getfasta:
     metadata:
-      pipeline_interfaces: $CODE/pifaces/wget_piface.yaml
+      pipeline_interfaces: wget_piface.yaml
       subsample_table: null
     constant_attributes:
       destdir: "LOCALDIR"
@@ -45,7 +45,7 @@ subprojects:
 
   getgtf:
     metadata:
-      pipeline_interfaces: $CODE/pifaces/wget_piface.yaml
+      pipeline_interfaces: wget_piface.yaml
       subsample_table: null
     constant_attributes:
       destdir: "LOCALDIR"
