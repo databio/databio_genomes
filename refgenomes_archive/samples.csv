@@ -1,2 +1,3 @@
 sample_name,cfg
-test,/project/shefflab/genomes_staging/genomes.yaml
+staging,/project/shefflab/genomes_staging/genomes.yaml
+test,/project/shefflab/genomes_test/genomes.yaml
