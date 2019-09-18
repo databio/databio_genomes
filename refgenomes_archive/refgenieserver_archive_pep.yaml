@@ -1,8 +1,0 @@
-metadata:
-  sample_table: samples.csv
-  output_dir: $HOME/refgenieserver_archive
-  pipeline_interfaces: $CODE/pifaces/refgenieserver_piface.yaml
-
-constant_attributes:
-  protocol: "refgenieserver"
-

@@ -10,5 +10,4 @@ constant_attributes:
 derived_attributes: ['cfg']
 
 data_sources:
-  cfg_path: "/project/shefflab/genomes_{sample_name}/genomes.yaml"
-
+  cfg_path: "$PROJECT/genomes_{sample_name}/genomes.yaml"
