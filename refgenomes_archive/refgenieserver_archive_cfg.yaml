@@ -1,0 +1,14 @@
+metadata:
+  sample_table: samples.csv
+  output_dir: $HOME/refgenieserver_archive
+  pipeline_interfaces: $CODE/pifaces/refgenieserver_piface.yaml
+
+constant_attributes:
+  cfg: "cfg_path"
+  protocol: "refgenieserver"
+
+derived_attributes: ['cfg']
+
+data_sources:
+  cfg_path: "/project/shefflab/genomes_{sample_name}/genomes.yaml"
+
