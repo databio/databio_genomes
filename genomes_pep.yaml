@@ -12,8 +12,9 @@ constant_attributes:
   local_gencode_gtf: "LOCAL_GENCODE_GTF"
   local_ensembl_gtf: "LOCAL_ENSEMBL_GTF"
   local_ensembl_rb: "LOCAL_ENSEMBL_RB"
+  local_dbnsfp: "LOCAL_DBNSFP"
 
-derived_attributes: ['destdir', 'local_fa', 'local_gtf',  'local_gencode_gtf', 'local_ensembl_gtf', 'local_ensembl_rb']
+derived_attributes: ['destdir', 'local_fa', 'local_gtf',  'local_gencode_gtf', 'local_ensembl_gtf', 'local_ensembl_rb', 'local_dbnsfp']
 
 data_sources:
   LOCALDIR: "/project/shefflab/www/refgenie_raw/"
@@ -22,7 +23,9 @@ data_sources:
   LOCAL_GENCODE_GTF: "{destdir}/{genome}_gencode.gtf.gz"
   LOCAL_ENSEMBL_GTF: "{destdir}/{genome}_ensembl.gtf.gz"
   LOCAL_ENSEMBL_RB: "{destdir}/{genome}_ensembl_rb.gff.gz"
+  LOCAL_DBNSFP: "{destdir}/{genome}_dbNSFP.zip"
   SRCFILE_GTF: "{gencode_gtf}"
+  SRCFILE_DBNSFP: "{dbnsfp}"
 
 subprojects:
   derive_sample_name:
@@ -51,4 +54,14 @@ subprojects:
       destdir: "LOCALDIR"
       destfile: "LOCAL_GENCODE_GTF"
       src: "SRCFILE_GTF"
+    derived_attributes: ["src", "destdir", "destfile"]
+
+  getdbnsfp:
+    metadata:
+      pipeline_interfaces: wget_piface.yaml
+      subsample_table: null
+    constant_attributes:
+      destdir: "LOCALDIR"
+      destfile: "LOCAL_DBNSFP"
+      src: "SRCFILE_DBNSFP"
     derived_attributes: ["src", "destdir", "destfile"]
