@@ -10,8 +10,13 @@ pipelines:
       "--asset": asset
     optional_arguments:
       "--fasta": local_fa
-      "--gencode-gtf": gencode_gtf
-      "--gencode-gtf": local_gencode_gtf
-      "--ensembl-gtf": local_ensembl_gtf
+      "--gencode_gtf": local_gencode_gtf
+      "--ensembl_gtf": local_ensembl_gtf
       "--gff": local_ensembl_rb
-      
+      "--refgene": local_refgene
+    resources:
+      default:
+        file_size: "0"
+        cores: "8"
+        mem: "40000"
+        time: "01-00:00:00"
