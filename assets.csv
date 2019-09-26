@@ -111,3 +111,11 @@ hg19_cdna,kallisto_index
 hg38_cdna,kallisto_index
 mm10_cdna,kallisto_index
 rn6_cdna,kallisto_index
+mm10,ensembl_rb
+hg38,ensembl_rb
+mm10,refgene_anno
+hg38,refgene_anno
+hg19,refgene_anno
+rn6,refgene_anno
+mm10,feat_annotation
+hg38,feat_annotation
