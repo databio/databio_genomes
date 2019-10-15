@@ -7,7 +7,7 @@ hg38_chr22,hg38_chr22,,ftp://ftp.ncbi.nlm.nih.gov/genomes/H_sapiens/CHR_22/hs_re
 human_repeats,human_repeats,,,,,,,
 human_alu,human_alu,,,,,,,
 human_alphasat,human_alphasat,,,,,,,
-human_rDNA,human_rDNA,,,,,,
+human_rDNA,human_rDNA,,,,,,,
 mouse_chrM2x,mouse_chrM2x,,,,,,,
 rCRSd,rCRSd,,/project/shefflab/genomes/rCRSd/rCRSd.fa.gz,,,,,
 hs38d1,hs38d1,,ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/786/075/GCA_000786075.2_hs38d1/GCA_000786075.2_hs38d1_genomic.fna.gz,,,,,
