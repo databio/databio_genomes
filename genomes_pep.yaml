@@ -26,7 +26,8 @@ data_sources:
   LOCAL_ENSEMBL_RB: "{destdir}/{genome}_ensembl_rb.gff.gz"
   LOCAL_DBNSFP: "{destdir}/{genome}_dbNSFP.zip"
   LOCAL_REFGENE: "{destdir}/{genome}_refGene.txt.gz"
-  SRCFILE_GTF: "{gencode_gtf}"
+  SRCFILE_GENCODE_GTF: "{gencode_gtf}"
+  SRCFILE_ENSEMBL_GTF: "{ensembl_gtf}"
   SRCFILE_DBNSFP: "{dbnsfp}"
   SRCFILE_REFGENE: "{refgene}"
   SRCFILE_ENSEMBL_RB: "{ensembl_rb}"
@@ -57,7 +58,17 @@ subprojects:
     constant_attributes:
       destdir: "LOCALDIR"
       destfile: "LOCAL_GENCODE_GTF"
-      src: "SRCFILE_GTF"
+      src: "SRCFILE_GENCODE_GTF"
+    derived_attributes: ["src", "destdir", "destfile"]
+
+  getensemblgtf:
+    metadata:
+      pipeline_interfaces: wget_piface.yaml
+      subsample_table: null
+    constant_attributes:
+      destdir: "LOCALDIR"
+      destfile: "LOCAL_ENSEMBL_GTF"
+      src: "SRCFILE_ENSEMBL_GTF"
     derived_attributes: ["src", "destdir", "destfile"]
 
   getrefgene:
