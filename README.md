@@ -2,7 +2,7 @@
 
 ## Metadata description
 
-This is a [PEP](https://pepkit.github.io) for building our lab's reference genome assets with refgenie. The PEP has a few files:
+This is a [PEP](https://pepkit.github.io) for building our lab's reference genome assets with refgenie. It documents the original source files and all of the assets that we build that are then served at http://refgenomes.databio.org. The whole process is scripted, starting from this repository, so we can build all of our served and local reference assembly assets from scratch. The PEP has a few files:
 
 - `genomes.csv` -- the main sample table, with one row per genome.
 - `assets.csv` -- the subsample table, with one row per asset, with each one tied to a row from the genomes.csv sample table.
