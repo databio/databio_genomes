@@ -14,6 +14,9 @@ pipelines:
       "--ensembl_gtf": local_ensembl_gtf
       "--gff": local_ensembl_rb
       "--refgene": local_refgene
+      "--dbnsfp": local_dbnsfp
+      "--dbsnp_vcf": local_dbsnp_vcf
+      "--dbsnp_tbi": local_dbsnp_tbi
     resources:
       default:
         file_size: "0"
