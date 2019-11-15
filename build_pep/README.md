@@ -5,6 +5,9 @@ This is a [PEP](https://pepkit.github.io) for building our lab's reference genom
 - `genomes.csv` -- the main sample table, with one row per genome.
 - `assets.csv` -- the subsample table, with one row per asset, with each one tied to a row from the genomes.csv sample table.
 - `refgenie_build_cfg.yaml` -- config file that defines the subprojects (which are used to download the input data) and additional project settings.
+
+Supplementary files:
+
 - `refgenie_piface.yaml` -- configuration file linking the project to the `refgenie build` command (or more generally: pipeline). Here you can specify the build command arguments.
 - `wget_piface.yaml` -- configuration file linking the project to `wget` command that is used by the subprojects to download the input data.
 

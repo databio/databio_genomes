@@ -1,7 +1,7 @@
 metadata:
-  sample_table: samples.csv
+  sample_table: archives.csv
   output_dir: $HOME/refgenieserver_archive
-  pipeline_interfaces: $CODE/pifaces/refgenieserver_piface.yaml
+  pipeline_interfaces: refgenieserver_piface.yaml
 
 constant_attributes:
   cfg: "cfg_path"
