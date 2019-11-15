@@ -6,5 +6,6 @@ The whole process is scripted, starting from this repository. From here, we down
 
 Please go to the respective subdirectories to learn more about building and archiving and get the PEPs that help us automate these processes:
 
-- [archive_pep](archive_pep)
 - [build_pep](build_pep)
+- [archive_pep](archive_pep)
+
