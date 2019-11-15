@@ -1,0 +1,15 @@
+protocol_mapping:
+  "*": refgenieserver
+
+pipelines:
+  refgenieserver:
+    name: refgenieserver
+    path: "refgenieserver archive -d"
+    arguments:
+      "-c": cfg
+    resources:
+      default:
+        file_size: "0"
+        cores: "8"
+        mem: "12000"
+        time: "01-00:00:00"
