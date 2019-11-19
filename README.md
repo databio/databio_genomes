@@ -4,10 +4,7 @@ This repository contains necessary files to build and archive our labs's referen
 
 The whole process is scripted, starting from this repository. From here, we download the input data (FASTA files, GTF files etc.), use `refgenie build` to create all of these assets in a local refgenie instance, and then use `refgenieserver archive` to build the server archives, and finally serve them with a refgenieserver instance by calling `refgenieserver serve`.
 
-Subdirectories have more information:
-
-- [build_pep](build_pep)
-- [archive_pep](archive_pep)
+[Build_pep](build_pep) subdirectory has more information.
 
 # How to build and serve the refgenie assets
 
@@ -36,12 +33,24 @@ This will create one job for each genome, building all assets in order for that 
 ## 3. Archive assets
 
 Assets are built locally now, but to serve them, we must archive them using `refgenieserver`.
+Since the archivization process is generally lengthy, it makes sense to submit the job to the cluster. We can easily create a SLURM sbumission script using [`divvy`](http://divvy.databio.org/en/latest/):
 
 ```
-looper run refgenomes_archive/refgenieserver_archive_cfg.yaml
+divvy write -o archive_job.sbatch --code 'refgenieserver archive -c <path/to/genomes.yaml> ...'
 ```
-
-See instructions under [archive_pep](archive_pep).
+for example:
+```
+divvy write -o archive_job.sbatch --code 'refgenieserver archive -c $PROJECT/genomes_staging/genomes.yaml' \
+  --mem 12000 \ 
+  --cores 8 \ 
+  --logfile $HOME/refgenieserver_archive.log \
+  --jobname refgenieserver_archive \
+  --time 01-00:00:00 \ 
+```
+and submit it with:
+```
+sbatch archive_job.sbatch
+```
 
 ## 4. Serve assets
 
