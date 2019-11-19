@@ -36,7 +36,7 @@ Assets are built locally now, but to serve them, we must archive them using `ref
 Since the archivization process is generally lengthy, it makes sense to submit the job to the cluster. We can easily create a SLURM sbumission script using [`divvy`](http://divvy.databio.org/en/latest/):
 
 ```
-divvy write -o archive_job.sbatch --code 'refgenieserver archive -c <path/to/genomes.yaml> ...'
+divvy write -o archive_job.sbatch --code 'refgenieserver archive -c <path/to/genomes.yaml>' ...
 ```
 for example:
 ```
