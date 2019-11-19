@@ -40,12 +40,13 @@ divvy write -o archive_job.sbatch --code 'refgenieserver archive -c <path/to/gen
 ```
 for example:
 ```
-divvy write -o archive_job.sbatch --code 'refgenieserver archive -c $PROJECT/genomes_staging/genomes.yaml' \
+divvy write -o archive_job.sbatch \
+  --code 'refgenieserver archive -c $PROJECT/genomes_staging/genomes.yaml' \
   --mem 12000 \ 
   --cores 8 \ 
   --logfile $HOME/refgenieserver_archive.log \
   --jobname refgenieserver_archive \
-  --time 01-00:00:00 \ 
+  --time 01-00:00:00
 ```
 and submit it with:
 ```
