@@ -1,0 +1,4 @@
+sample_name,assets,params,files
+hg38-fasta…,,,fasta=http://blahblahblah
+hg38-salmon…,genomefa=hg38/genomfa,,
+hg38-salmon…,txfa=hg38/txomfa,,

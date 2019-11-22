@@ -1,0 +1,3 @@
+sample_name,genome_namespace,asset_recipe,asset_name
+hg38-fasta…,hg38,fasta,genomefa
+hg38-salmon…,hg38,salmon,salmon_gen
