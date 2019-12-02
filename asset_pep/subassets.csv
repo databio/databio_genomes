@@ -1,4 +1,8 @@
-sample_name,assets,params,files
-hg38-fasta…,,,fasta=http://blahblahblah
-hg38-salmon…,genomefa=hg38/genomfa,,
-hg38-salmon…,txfa=hg38/txomfa,,
+sample_name,files_key,files_value,assets_key,assets_value,params_key,params_value
+rCRSd-fasta,fasta,http://big.databio.org/refgenie_raw/rCRSd.fa.gz,,,,
+rCRSd-bowtie2_index,,,fasta,rCRSd/fasta,,
+hg38-fasta,fasta,ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_keys/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.gz,,,,
+hg38-ensembl_gtf,ensembl_gtf,ftp://ftp.ensembl.org/pub/release-97/gtf/homo_sapiens/Homo_sapiens.GRCh38.97.gtf.gz,,,,
+hg38_cdna-fasta,fasta,http://big.databio.org/refgenie_raw/hg38_cdna.fa.gz,,,,
+hg38-salmon_sa_index,,,genomefa,hg38/fasta,,
+hg38-salmon_sa_index,,,txomefa,hg38_cdna/fasta,,

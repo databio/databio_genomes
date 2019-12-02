@@ -1,3 +1,7 @@
-sample_name,genome_namespace,asset_recipe,asset_name
-hg38-fasta…,hg38,fasta,genomefa
-hg38-salmon…,hg38,salmon,salmon_gen
+sample_name,genome,asset_recipe,asset_name
+rCRSd-fasta,rCRSd,fasta,fasta
+rCRSd-bowtie2_index,rCRSd,bowtie2_index,bowtie2_index
+hg38-fasta,hg38,fasta,fasta
+hg38-ensembl_gtf,hg38,ensembl_gtf,ensembl_gtf
+hg38_cdna-fasta,hg38_cdna,fasta,fasta
+hg38-salmon_sa_index,hg38,salmon_sa_index,salmon_sa_index

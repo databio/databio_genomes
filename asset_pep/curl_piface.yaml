@@ -1,0 +1,10 @@
+protocol_mapping:
+  "*": curl
+
+pipelines:
+  curl:
+    name: curl
+    path: "curl --fail"
+    arguments:
+      "": files_value
+      "--output": destfile

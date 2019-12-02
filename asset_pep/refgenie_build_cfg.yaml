@@ -1,0 +1,32 @@
+metadata:
+  sample_table: assets.csv
+  subsample_table: subassets.csv
+
+  output_dir: $GENOMES
+  pipeline_interfaces: refgenie_piface.yaml
+
+constant_attributes:
+  protocol: "refgenie"
+  destdir: "LOCALDIR"
+  local_input: "LOCAL_INPUT"
+  assets: "ASSETS"
+  params: "PARAMS"
+  files: "FILES"
+
+derived_attributes: ['destdir','local_input', 'assets', 'params', 'files']
+
+data_sources:
+  LOCALDIR: "/project/shefflab/www/refgenie_raw/"
+  LOCAL_INPUT: "{destdir}/file.{genome}.{files_key}"
+  ASSETS: "{assets_key}={assets_value}"
+  PARAMS: "{params_key}={params_value}"
+  FILES: "{files_key}={destdir}/file.{genome}.{files_key}"
+
+subprojects:
+  getfiles:
+    metadata:
+      pipeline_interfaces: curl_piface.yaml
+    constant_attributes:
+      destdir: "LOCALDIR"
+      destfile: "LOCAL_INPUT"
+    derived_attributes: ["destdir", "destfile"]

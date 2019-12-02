@@ -1,0 +1,21 @@
+protocol_mapping:
+  "*": refgenie
+
+pipelines:
+  refgenie:
+    name: refgenie
+    path: "refgenie build"
+    arguments:
+      "--genome": genome
+      "": asset_name
+      "--recipe": asset_recipe
+    optional_arguments:
+      "--assets": assets
+      "--files": files
+      "--params": params
+    resources:
+      default:
+        file_size: "0"
+        cores: "8"
+        mem: "40000"
+        time: "01-00:00:00"
