@@ -16,8 +16,7 @@ constant_attributes:
 derived_attributes: ['destdir','local_input', 'assets', 'params', 'files']
 
 data_sources:
-  # LOCALDIR: "/project/shefflab/www/refgenie_raw/"
-  LOCALDIR: "/Users/mstolarczyk/Desktop/testing/refgenie_raw/"
+  LOCALDIR: "/project/shefflab/www/refgenie_raw/"
   LOCAL_INPUT: "{destdir}/file.{genome}.{files_id}"
   ASSETS: "{assets_id}={assets_value}"
   PARAMS: "{params_id}={params_value}"
