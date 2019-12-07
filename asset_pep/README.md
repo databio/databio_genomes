@@ -43,12 +43,12 @@ Your asset will be retrievable from the server with `refgenie pull {genome}/{ass
 
 ### Step 2: Add any required inputs to the recipe_inputs table
 
-Next, we need to add the source for each item required by your recipe. You can see what the recipe requires by using `-q` or `--requirements`, like this: `refgenie build {genome}/{recipe} -q`. If your recipe doesn't require any inputs, then you're done. If it requires any inputs (which can be either *assets*, *files*, or *parameters*, then you need to specify these in the `recipe_inputs.csv` table.
+Next, we need to add the source for each item required by your recipe. You can see what the recipe requires by using `-q` or `--requirements`, like this: `refgenie build {genome}/{recipe} -q`. If your recipe doesn't require any inputs, then you're done. If it requires any inputs (which can be one or more of the following: *assets*, *files*, *parameters*), then you need to specify these in the `recipe_inputs.csv` table.
 
 For each required input, you add a row to `recipe_inputs.csv`. Follow these directions:
 - `sample_name` - must match the row name in `assets.csv`. This is how we match inputs to assets.
 
-Next you will need to fill in one of the 3 types, either: 
+Next you will need to fill in one or more of the 3 _pairs of columns_: 
 - `files_id` and `files_value`, if your recipe requires a files input. The `id` field must match the recipe requirement.
 - `assets_id` and `assets_value`, if your recipe requires assets input. The `id` field must match the recipe requirement.
 - `params_id` and `params_value`, if your recipe requires a params input. The `id` field must match the recipe requirement.
