@@ -43,7 +43,7 @@ Your asset will be retrievable from the server with `refgenie pull {genome}/{ass
 
 ### Step 2: Add any required inputs to the subasset table
 
-If your asset doesn't require any inputs, then you're done. If it requires any inputs (which can be either *assets*, *files*, or *parameters*, then you need to specify these in the `subassets.csv` table.
+Next, we need to add the source for each item required by your recipe. You can see what the recipe requires by using `-q` or `--requirements`, like this: `refgenie build {genome}/{recipe} -q`. If your recipe doesn't require any inputs, then you're done. If it requires any inputs (which can be either *assets*, *files*, or *parameters*, then you need to specify these in the `subassets.csv` table.
 
 For each required input, you add a row to `subassets.csv`. Follow these directions:
 - `sample_name` - must match the row name in `assets.csv`. This is how we match inputs to assets.
