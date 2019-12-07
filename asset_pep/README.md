@@ -1,4 +1,4 @@
-**NOTE: requires `peppy` v0.22.3. Unreleased as of 2019-12-02.**
+**NOTE: requires `peppy` v0.22.3. Unreleased as of 2019-12-06.**
 
 # Asset PEP
 
