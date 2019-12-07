@@ -50,7 +50,7 @@ For each required input, you add a row to `subassets.csv`. Follow these directio
 
 Next you will need to fill in one of the 3 types, either: 
 - `files_id` and `files_value`, if your recipe requires a files input. The `id` field must match the recipe requirement.
-- `assets_id` and `assets_value`,tif your recipe requires assets input. The `id` field must match the recipe requirement.
+- `assets_id` and `assets_value`, if your recipe requires assets input. The `id` field must match the recipe requirement.
 - `params_id` and `params_value`, if your recipe requires a params input. The `id` field must match the recipe requirement.
 
 
