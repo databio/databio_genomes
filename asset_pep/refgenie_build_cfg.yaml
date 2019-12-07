@@ -1,6 +1,6 @@
 metadata:
   sample_table: assets.csv
-  subsample_table: subassets.csv
+  subsample_table: recipe_inputs.csv
 
   output_dir: $GENOMES
   pipeline_interfaces: refgenie_piface.yaml

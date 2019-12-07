@@ -5,7 +5,7 @@
 This is a [PEP](https://pepkit.github.io) for building our lab's reference genome assets with refgenie. The contents are:
 
 - `assets.csv` - The primary sample_table. Each each row is an asset. 
-- `subassets.csv` - The subsample_table. This provides a way to define each individual value passed to any of the 3 arguments of the `refgenie build` command: `--assets`, `--params`, and `--files`. 
+- `recipe_inputs.csv` - The subsample_table. This provides a way to define each individual value passed to any of the 3 arguments of the `refgenie build` command: `--assets`, `--params`, and `--files`. 
 - `refgenie_build_cfg.yaml` -- config file that defines the subprojects (which are used to download the input data) and additional project settings.
 
 ## Building assets using this PEP
@@ -41,11 +41,11 @@ To add an asset, you will need to add a row in `assets.csv`. Follow these direct
 
 Your asset will be retrievable from the server with `refgenie pull {genome}/{asset_name}`.
 
-### Step 2: Add any required inputs to the subasset table
+### Step 2: Add any required inputs to the recipe_inputs table
 
-Next, we need to add the source for each item required by your recipe. You can see what the recipe requires by using `-q` or `--requirements`, like this: `refgenie build {genome}/{recipe} -q`. If your recipe doesn't require any inputs, then you're done. If it requires any inputs (which can be either *assets*, *files*, or *parameters*, then you need to specify these in the `subassets.csv` table.
+Next, we need to add the source for each item required by your recipe. You can see what the recipe requires by using `-q` or `--requirements`, like this: `refgenie build {genome}/{recipe} -q`. If your recipe doesn't require any inputs, then you're done. If it requires any inputs (which can be either *assets*, *files*, or *parameters*, then you need to specify these in the `recipe_inputs.csv` table.
 
-For each required input, you add a row to `subassets.csv`. Follow these directions:
+For each required input, you add a row to `recipe_inputs.csv`. Follow these directions:
 - `sample_name` - must match the row name in `assets.csv`. This is how we match inputs to assets.
 
 Next you will need to fill in one of the 3 types, either: 
