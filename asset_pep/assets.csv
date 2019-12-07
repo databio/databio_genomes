@@ -126,3 +126,7 @@ mm10-feat_annotation,mm10,feat_annotation,feat_annotation
 hg38-dbnsfp,hg38,dbnfp,dbnfp
 hg38-dbsnp,hg38,dbsnp,dbsnp
 hg19-dbsnp,hg19,dbsnp,dbsnp
+hg19-salmon_partial_sa_index,hg19,salmon_partial_sa_index,salmon_partial_sa_index
+mm10-salmon_partial_sa_index,mm10,salmon_partial_sa_index,salmon_partial_sa_index
+rn6-salmon_partial_sa_index,rn6,salmon_partial_sa_index,salmon_partial_sa_index
+hg38-salmon_partial_sa_index,hg38,salmon_partial_sa_index,salmon_partial_sa_index
