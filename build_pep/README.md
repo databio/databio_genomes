@@ -1,3 +1,5 @@
+**DEPRECATED: Please see the `assets_pep` folder instead. This is the old way to build these**.
+
 # Build PEP description
 
 This is a [PEP](https://pepkit.github.io) for building our lab's reference genome assets with refgenie, it has a few files:
