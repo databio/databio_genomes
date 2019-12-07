@@ -37,7 +37,7 @@ To add an asset, you will need to add a row in `assets.csv`. Follow these direct
 - `sample_name` - just use `{genome}-{asset_name}` for now
 - `genome` - the human-readable genome (namespace) you want to serve this asset under
 - `asset_name` - the human-readble asset name you want to serve this asset under. It is often, but not necessarily, identical to the `asset_recipe`.
-- `asset_recipe` - the unique identifier for the recipe you want to build (use `r efgenie list` to see [available recipes](http://refgenie.databio.org/en/latest/build/))
+- `asset_recipe` - the unique identifier for the recipe you want to build (use `refgenie list` to see [available recipes](http://refgenie.databio.org/en/latest/build/))
 
 Your asset will be retrievable from the server with `refgenie pull {genome}/{asset_name}`.
 
