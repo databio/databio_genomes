@@ -7,8 +7,7 @@ pipelines:
     path: "refgenie build"
     arguments:
       "--genome": genome
-      "": asset_name
-      "--recipe": asset_recipe
+      "": asset
     optional_arguments:
       "--assets": assets
       "--files": files
