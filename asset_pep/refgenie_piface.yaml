@@ -1,5 +1,5 @@
 protocol_mapping:
-  "*": refgenie
+  "refgenie": refgenie
 
 pipelines:
   refgenie:
