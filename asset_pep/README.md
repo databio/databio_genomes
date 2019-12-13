@@ -1,5 +1,3 @@
-**NOTE: requires `peppy` v0.22.3. Unreleased as of 2019-12-06.**
-
 # Asset PEP
 
 This is a [PEP](https://pepkit.github.io) for building our lab's reference genome assets with refgenie. The contents are:
