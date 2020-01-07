@@ -4,33 +4,35 @@ This repository contains the files to build and archive our labs's reference gen
 
 The whole process is scripted, starting from this repository. From here, we download the input data (FASTA files, GTF files etc.), use `refgenie build` to create all of these assets in a local refgenie instance, and then use `refgenieserver archive` to build the server archives, and finally serve them with a refgenieserver instance by calling `refgenieserver serve`.
 
-The [asset_pep](asset_pep) subdirectory has more information.
+# Asset PEP
 
-# How to build and serve the refgenie assets
+The [asset_pep](asset_pep) folder contains a [PEP](https://pepkit.github.io) with metadata for each asset. The contents are:
 
-## 1. Download the remote data
+- `assets.csv` - The primary sample_table. Each each row is an asset. 
+- `recipe_inputs.csv` - The subsample_table. This provides a way to define each individual value passed to any of the 3 arguments of the `refgenie build` command: `--assets`, `--params`, and `--files`. 
+- `refgenie_build_cfg.yaml` -- config file that defines the subprojects (which are used to download the input data) and additional project settings.
 
-Many of the assets require some input files, and we have to make sure we have those files locally. In the `genomes.csv` file, we have entered these files as remote URLs, so the first step is to download them. We have created subprojects called `getfasta`, `getgtf`, *etc* that do these downloads. So, first run these subprojects:
+## Building assets using this PEP
 
-```
-looper run build_pep/refgenie_build_cfg.yaml --sp getfasta
-looper run build_pep/refgenie_build_cfg.yaml --sp getgtf
-...
-```
+### Step 1: Download input files
 
-(There are other `get...` subprojects available for the other data types). Now, all the files should be downloaded and named in the appropriate input folder. 
-
-## 2. Build assets
-
-Once files are present locally, we can run `refgenie build` on each genome for all assets like this:
+Many of the assets require some input files, and we have to make sure we have those files locally. In the `recipe_inputs.csv` file, we have entered these files as remote URLs, so the first step is to download them. We have created a subproject called `getfiles` for this: To programmatically download all the files required by `refgenie build`, run from this directory:
 
 ```
-looper run build_pep/refgenie_build_cfg.yaml
+looper run refgenie_build_cfg.yaml --compute local --sp getfiles
 ```
 
-This will create one job for each genome, building all assets in order for that job.
+### Step 2: Build assets
 
-## 3. Archive assets
+Once files are present locally, we can run `refgenie build` on each assets specified in the sample_table (`assets.csv`):
+
+```
+looper run refgenie_build_cfg.yaml
+```
+
+This will create one job for each *asset*.
+
+### Step 3. Archive assets
 
 Assets are built locally now, but to serve them, we must archive them using `refgenieserver`.
 Since the archivization process is generally lengthy, it makes sense to submit the job to the cluster. We can easily create a SLURM sbumission script using [`divvy`](http://divvy.databio.org/en/latest/):
@@ -53,8 +55,36 @@ and submit it with:
 sbatch archive_job.sbatch
 ```
 
-## 4. Serve assets
+### Step 4. Serve assets
 
 ```
 refgenieserver serve genomes.yaml
 ```
+
+
+## Adding an asset to this PEP
+
+### Step 1: Add the asset to the asset table.
+
+To add an asset, you will need to add a row in `assets.csv`. Follow these directions:
+
+- `sample_name` - just use `{genome}-{asset_name}` for now
+- `genome` - the human-readable genome (namespace) you want to serve this asset under
+- `asset_name` - the human-readble asset name you want to serve this asset under. It is often, but not necessarily, identical to the `asset_recipe`.
+- `asset_recipe` - the unique identifier for the recipe you want to build (use `refgenie list` to see [available recipes](http://refgenie.databio.org/en/latest/build/))
+
+Your asset will be retrievable from the server with `refgenie pull {genome}/{asset_name}`.
+
+### Step 2: Add any required inputs to the recipe_inputs table
+
+Next, we need to add the source for each item required by your recipe. You can see what the recipe requires by using `-q` or `--requirements`, like this: `refgenie build {genome}/{recipe} -q`. If your recipe doesn't require any inputs, then you're done. If it requires any inputs (which can be one or more of the following: *assets*, *files*, *parameters*), then you need to specify these in the `recipe_inputs.csv` table.
+
+For each required input, you add a row to `recipe_inputs.csv`. Follow these directions:
+- `sample_name` - must match the row name in `assets.csv`. This is how we match inputs to assets.
+
+Next you will need to fill in one or more of the 3 _pairs of columns_: 
+- `files_id` and `files_value`, if your recipe requires a files input. The `id` field must match the recipe requirement.
+- `assets_id` and `assets_value`, if your recipe requires assets input. The `id` field must match the recipe requirement.
+- `params_id` and `params_value`, if your recipe requires a params input. The `id` field must match the recipe requirement.
+
+
