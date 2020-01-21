@@ -6,6 +6,9 @@ hg38_cdna-fasta,hg38_cdna,fasta
 hg19-fasta,hg19,fasta
 hg19-fasta_txome,hg19,fasta_txome
 hg19_cdna-fasta,hg19_cdna,fasta
+hg18-fasta,hg18,fasta
+hg18-fasta_txome,hg18,fasta_txome
+hg18_cdna-fasta,hg18_cdna,fasta
 mm10-fasta,mm10,fasta
 mm10-fasta_txome,mm10,fasta_txome
 mm10_cdna-fasta,mm10_cdna,fasta
@@ -20,6 +23,7 @@ human_alu-fasta,human_alu,fasta
 human_alphasat-fasta,human_alphasat,fasta
 human_rDNA-fasta,human_rDNA,fasta
 mouse_chrM2x-fasta,mouse_chrM2x,fasta
+hg18-bowtie2_index,hg18,bowtie2_index
 hg19-bowtie2_index,hg19,bowtie2_index
 mm10-bowtie2_index,mm10,bowtie2_index
 rn6-bowtie2_index,rn6,bowtie2_index
@@ -33,6 +37,7 @@ human_rDNA-bowtie2_index,human_rDNA,bowtie2_index
 mouse_chrM2x-bowtie2_index,mouse_chrM2x,bowtie2_index
 hg38-bowtie2_index,hg38,bowtie2_index
 rCRSd-bowtie2_index,rCRSd,bowtie2_index
+hg18-bwa_index,hg18,bwa_index
 hg19-bwa_index,hg19,bwa_index
 mm10-bwa_index,mm10,bwa_index
 rn6-bwa_index,rn6,bwa_index
@@ -50,6 +55,7 @@ hg19-salmon_sa_index,hg19,salmon_sa_index
 mm10-salmon_sa_index,mm10,salmon_sa_index
 rn6-salmon_sa_index,rn6,salmon_sa_index
 hg38-salmon_sa_index,hg38,salmon_sa_index
+hg18-bismark_bt2_index,hg18,bismark_bt2_index
 hg19-bismark_bt2_index,hg19,bismark_bt2_index
 mm10-bismark_bt2_index,mm10,bismark_bt2_index
 rn6-bismark_bt2_index,rn6,bismark_bt2_index
@@ -63,6 +69,7 @@ human_rDNA-bismark_bt2_index,human_rDNA,bismark_bt2_index
 mouse_chrM2x-bismark_bt2_index,mouse_chrM2x,bismark_bt2_index
 hg38-bismark_bt2_index,hg38,bismark_bt2_index
 rCRSd-bismark_bt2_index,rCRSd,bismark_bt2_index
+hg18-bismark_bt1_index,hg18,bismark_bt1_index
 hg19-bismark_bt1_index,hg19,bismark_bt1_index
 mm10-bismark_bt1_index,mm10,bismark_bt1_index
 rn6-bismark_bt1_index,rn6,bismark_bt1_index
@@ -76,6 +83,7 @@ human_rDNA-bismark_bt1_index,human_rDNA,bismark_bt1_index
 mouse_chrM2x-bismark_bt1_index,mouse_chrM2x,bismark_bt1_index
 hg38-bismark_bt1_index,hg38,bismark_bt1_index
 rCRSd-bismark_bt1_index,rCRSd,bismark_bt1_index
+hg18-hisat2_index,hg18,hisat2_index
 hg19-hisat2_index,hg19,hisat2_index
 mm10-hisat2_index,mm10,hisat2_index
 rn6-hisat2_index,rn6,hisat2_index
@@ -88,6 +96,7 @@ human_alphasat-hisat2_index,human_alphasat,hisat2_index
 human_rDNA-hisat2_index,human_rDNA,hisat2_index
 mouse_chrM2x-hisat2_index,mouse_chrM2x,hisat2_index
 hg38-hisat2_index,hg38,hisat2_index
+hg18-star_index,hg18,star_index
 hg19-star_index,hg19,star_index
 mm10-star_index,mm10,star_index
 rn6-star_index,rn6,star_index
@@ -103,6 +112,7 @@ hg38-star_index,hg38,star_index
 rCRSd-star_index,rCRSd,star_index
 rCRSd-hisat2_index,rCRSd,hisat2_index
 hg38_cdna-kallisto_index,hg38_cdna,kallisto_index
+hg18_cdna-kallisto_index,hg18_cdna,kallisto_index
 hg19_cdna-kallisto_index,hg19_cdna,kallisto_index
 mm10_cdna-kallisto_index,mm10_cdna,kallisto_index
 rn6_cdna-kallisto_index,rn6_cdna,kallisto_index
@@ -110,6 +120,7 @@ hg38_cdna-salmon_index,hg38_cdna,salmon_index
 hg19_cdna-salmon_index,hg19_cdna,salmon_index
 mm10_cdna-salmon_index,mm10_cdna,salmon_index
 rn6_cdna-salmon_index,rn6_cdna,salmon_index
+hg18-gencode_gtf,hg18,gencode_gtf
 hg19-gencode_gtf,hg19,gencode_gtf
 hg38-gencode_gtf,hg38,gencode_gtf
 mm10-gencode_gtf,mm10,gencode_gtf
@@ -134,6 +145,7 @@ hg19-salmon_partial_sa_index,hg19,salmon_partial_sa_index
 mm10-salmon_partial_sa_index,mm10,salmon_partial_sa_index
 rn6-salmon_partial_sa_index,rn6,salmon_partial_sa_index
 hg38-salmon_partial_sa_index,hg38,salmon_partial_sa_index
+hg18-suffixerator_index,hg18,suffixerator_index
 hg19-suffixerator_index,hg19,suffixerator_index
 mm10-suffixerator_index,mm10,suffixerator_index
 rn6-suffixerator_index,rn6,suffixerator_index
@@ -146,6 +158,7 @@ human_alphasat-suffixerator_index,human_alphasat,suffixerator_index
 human_rDNA-suffixerator_index,human_rDNA,suffixerator_index
 mouse_chrM2x-suffixerator_index,mouse_chrM2x,suffixerator_index
 hg38-suffixerator_index,hg38,suffixerator_index
+hg18-tallymer_index,hg18,tallymer_index
 hg19-tallymer_index,hg19,tallymer_index
 mm10-tallymer_index,mm10,tallymer_index
 rn6-tallymer_index,rn6,tallymer_index
@@ -158,3 +171,7 @@ human_alphasat-tallymer_index,human_alphasat,tallymer_index
 human_rDNA-tallymer_index,human_rDNA,tallymer_index
 mouse_chrM2x-tallymer_index,mouse_chrM2x,tallymer_index
 hg38-tallymer_index,hg38,tallymer_index
+hg38-cellranger_reference,hg38,cellranger_reference
+hg18-cellranger_reference,hg18,cellranger_reference
+hg19-cellranger_reference,hg19,cellranger_reference
+mm10-cellranger_reference,mm10,cellranger_reference
