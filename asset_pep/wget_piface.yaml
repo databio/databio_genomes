@@ -1,10 +1,13 @@
 protocol_mapping:
-  "*": wget
+  "refgenie": wget
 
 pipelines:
   wget:
     name: wget
     path: "wget"
-    arguments:
-      "-O": destfile
-      "": files_value
+    command_template: >
+      {%- for itype in sample.input_type -%}
+        {%- if itype == 'files' -%}
+          {{ pipeline.path + ' -O ' + sample.destdir + '/file.' + sample.genome + '.' + sample.asset + ' ' + sample.input_value[loop.index0] }}; 
+        {%- endif -%}
+      {%- endfor -%}

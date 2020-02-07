@@ -5,16 +5,20 @@ pipelines:
   refgenie:
     name: refgenie
     path: "refgenie build"
-    arguments:
-      "--genome": genome
-      "": asset
-    optional_arguments:
-      "--assets": assets
-      "--files": files
-      "--params": params
     resources:
       default:
         file_size: "0"
         cores: "8"
         mem: "40000"
         time: "01-00:00:00"
+    command_template: >
+      {{ pipeline.path }} {{ sample.genome }}/{{ sample.asset }}
+      {%- if sample.input_value is defined -%}
+        {%- for it in sample.input_type -%}
+          {%- if it == 'files' -%}
+            {{' --' + it + ' ' + sample.input_id[loop.index0] + '=' + sample.destdir + '/file.' + sample.genome + '.' + sample.asset}}
+          {%- else -%}
+            {{' --' + it + ' ' + sample.input_id[loop.index0] + '=' + sample.input_value[loop.index0]}}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
