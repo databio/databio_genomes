@@ -6,20 +6,14 @@ metadata:
 
 constant_attributes:
   protocol: "refgenie"
-  destdir: "LOCALDIR"
   local_input: "LOCAL_INPUT"
 
-derived_attributes: ['destdir', 'local_input']
+derived_attributes: ['local_input']
 
 data_sources:
-  LOCALDIR: "/project/shefflab/www/refgenie_raw/"
-  LOCAL_INPUT: "{destdir}/file.{genome}.{asset}"
+  LOCAL_INPUT: "/project/shefflab/www/refgenie_raw/files.{genome}.{asset}."
 
 subprojects:
   getfiles:
     metadata:
       pipeline_interfaces: wget_piface.yaml
-    constant_attributes:
-      destdir: "LOCALDIR"
-      destfile: "LOCAL_INPUT"
-    derived_attributes: ["destdir", "destfile"]

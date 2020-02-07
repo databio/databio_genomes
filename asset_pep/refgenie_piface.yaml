@@ -5,6 +5,7 @@ pipelines:
   refgenie:
     name: refgenie
     path: "refgenie build"
+    schema: pep_schema.yaml
     resources:
       default:
         file_size: "0"
@@ -16,7 +17,7 @@ pipelines:
       {%- if sample.input_value is defined -%}
         {%- for it in sample.input_type -%}
           {%- if it == 'files' -%}
-            {{' --' + it + ' ' + sample.input_id[loop.index0] + '=' + sample.destdir + '/file.' + sample.genome + '.' + sample.asset}}
+            {{' --' + it + ' ' + sample.input_id[loop.index0] + '=' + sample.local_input + sample.input_id[loop.index0]}}
           {%- else -%}
             {{' --' + it + ' ' + sample.input_id[loop.index0] + '=' + sample.input_value[loop.index0]}}
           {%- endif -%}

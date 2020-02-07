@@ -8,6 +8,6 @@ pipelines:
     command_template: >
       {%- for itype in sample.input_type -%}
         {%- if itype == 'files' -%}
-          {{ pipeline.path + ' -O ' + sample.destdir + '/file.' + sample.genome + '.' + sample.asset + ' ' + sample.input_value[loop.index0] }}; 
+          {{ pipeline.path + ' -O ' + sample.local_input  + sample.input_id[loop.index0] + ' ' + sample.input_value[loop.index0] }}; 
         {%- endif -%}
       {%- endfor -%}
