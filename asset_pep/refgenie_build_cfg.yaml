@@ -4,6 +4,8 @@ metadata:
   output_dir: $GENOMES
   pipeline_interfaces: refgenie_piface.yaml
 
+sample_name_template: "{{sample.genome}}-{{sample.asset}}"
+
 constant_attributes:
   protocol: "refgenie"
   local_input: "LOCAL_INPUT"
