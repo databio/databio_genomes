@@ -34,8 +34,13 @@ This will create one job for each *asset*.
 
 ### Step 3. Archive assets
 
-Assets are built locally now, but to serve them, we must archive them using `refgenieserver`.
-Since the archivization process is generally lengthy, it makes sense to submit the job to the cluster. We can easily create a SLURM submission script using [`divvy`](http://divvy.databio.org/en/latest/):
+Assets are built locally now, but to serve them, we must archive them using `refgenieserver`. The command is simple:
+
+```
+refgenieserver archive -c <path/to/genomes.yaml>
+```
+
+Since the archivization process is generally lengthy, it makes sense to submit this job to the cluster. Since you have [divvy](http://divvy.databio.org/en/latest/) installed (with looper), you can easily create a SLURM submission script with `divvy write`:
 
 ```
 divvy write -o archive_job.sbatch --code 'refgenieserver archive -c <path/to/genomes.yaml>' ...
