@@ -16,7 +16,7 @@ The [asset_pep](asset_pep) folder contains a [PEP](https://pepkit.github.io) wit
 
 ### Step 1: Download input files
 
-Many of the assets require some input files, and we have to make sure we have those files locally. In the `recipe_inputs.csv` file, we have entered these files as remote URLs, so the first step is to download them. We have created a subproject called `getfiles` for this: To programmatically download all the files required by `refgenie build`, run from this directory:
+Many of the assets require some input files, and we have to make sure we have those files locally. In the `recipe_inputs.csv` file, we have entered these files as remote URLs, so the first step is to download them. We have created a subproject called `getfiles` for this: To programmatically download all the files required by `refgenie build`, run from this directory using [looper](http://looper.databio.org):
 
 ```
 looper run refgenie_build_cfg.yaml --compute local --sp getfiles
@@ -35,7 +35,7 @@ This will create one job for each *asset*.
 ### Step 3. Archive assets
 
 Assets are built locally now, but to serve them, we must archive them using `refgenieserver`.
-Since the archivization process is generally lengthy, it makes sense to submit the job to the cluster. We can easily create a SLURM sbumission script using [`divvy`](http://divvy.databio.org/en/latest/):
+Since the archivization process is generally lengthy, it makes sense to submit the job to the cluster. We can easily create a SLURM submission script using [`divvy`](http://divvy.databio.org/en/latest/):
 
 ```
 divvy write -o archive_job.sbatch --code 'refgenieserver archive -c <path/to/genomes.yaml>' ...
