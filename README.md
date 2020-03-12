@@ -6,7 +6,7 @@ The whole process is scripted, starting from this repository. From here, we down
 
 # Asset PEP
 
-The [asset_pep](asset_pep) folder contains a [PEP](https://pepkit.github.io) with metadata for each asset. The contents are:
+The [asset_pep](asset_pep) folder contains a [PEP](https://pep.databio.org) with metadata for each asset. The contents are:
 
 - `assets.csv` - The primary sample_table. Each each row is an asset. 
 - `recipe_inputs.csv` - The subsample_table. This provides a way to define each individual value passed to any of the 3 arguments of the `refgenie build` command: `--assets`, `--params`, and `--files`. 
