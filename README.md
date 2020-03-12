@@ -12,6 +12,43 @@ The [asset_pep](asset_pep) folder contains a [PEP](https://pep.databio.org) with
 - `recipe_inputs.csv` - The subsample_table. This provides a way to define each individual value passed to any of the 3 arguments of the `refgenie build` command: `--assets`, `--params`, and `--files`. 
 - `refgenie_build_cfg.yaml` -- config file that defines a subproject (which is used to download the input data) and additional project settings.
 
+Below are instructions for: 1) adding a new asset to this PEP, which will deploy that asset at http://refgenomes.databio.org; 2) processing this PEP to build, archive, and deploy on the server.
+
+## Adding an asset to this PEP
+
+### Step 1: Add the asset to the asset table.
+
+To add an asset, you will need to add a row in `assets.csv`. Follow these directions:
+
+- `genome` - the human-readable genome (namespace) you want to serve this asset under
+- `asset` - the human-readble asset name you want to serve this asset under. It is identical to the asset recipe. Use `refgenie list` to see [available recipes](http://refgenie.databio.org/en/latest/build/)
+
+Your asset will be retrievable from the server with `refgenie pull {genome}/{asset_name}`.
+
+### Step 2: Add any required inputs to the recipe_inputs table
+
+Next, we need to add the source for each item required by your recipe. You can see what the recipe requires by using `-q` or `--requirements`, like this: `refgenie build {genome}/{recipe} -q`. If your recipe doesn't require any inputs, then you're done. If it requires any inputs (which can be one or more of the following: *assets*, *files*, *parameters*), then you need to specify these in the `recipe_inputs.csv` table.
+
+For each required input, you add a row to `recipe_inputs.csv`. Follow these directions:
+- `sample_name` - must match the `genome` and `asset` value in the `assets.csv` file. Format it this way: `<genome>-<asset>`. This is how we match inputs to assets.
+
+Next you will need to fill in 3 columns:
+- `input_type` which is one of the following: *files*, *params* or *assets*
+- `intput_id` must match the recipe requirement. Again, use `refgenie build <genome>/<asset> -q` to learn the ids
+- `input_value` value for the input, e.g. URL in case of *files*
+
+### Step 3: See if you did it well!
+
+**Validate the PEP with [`eido`](http://eido.databio.org/en/latest/)**
+
+The command below validates the PEP aginst a remote schema. Any PEP issues will result in a `ValidationError`:
+
+```
+eido -p refgenie_build_cfg.yaml -s http://schema.databio.org/refgenie/refgenie_build.yaml
+```
+
+
+
 ## Building assets using this PEP
 
 ### Step 1: Download input files
@@ -64,38 +101,4 @@ sbatch archive_job.sbatch
 
 ```
 refgenieserver serve genomes.yaml
-```
-
-
-## Adding an asset to this PEP
-
-### Step 1: Add the asset to the asset table.
-
-To add an asset, you will need to add a row in `assets.csv`. Follow these directions:
-
-- `genome` - the human-readable genome (namespace) you want to serve this asset under
-- `asset` - the human-readble asset name you want to serve this asset under. It is identical to the asset recipe. Use `refgenie list` to see [available recipes](http://refgenie.databio.org/en/latest/build/)
-
-Your asset will be retrievable from the server with `refgenie pull {genome}/{asset_name}`.
-
-### Step 2: Add any required inputs to the recipe_inputs table
-
-Next, we need to add the source for each item required by your recipe. You can see what the recipe requires by using `-q` or `--requirements`, like this: `refgenie build {genome}/{recipe} -q`. If your recipe doesn't require any inputs, then you're done. If it requires any inputs (which can be one or more of the following: *assets*, *files*, *parameters*), then you need to specify these in the `recipe_inputs.csv` table.
-
-For each required input, you add a row to `recipe_inputs.csv`. Follow these directions:
-- `sample_name` - must match the `genome` and `asset` value in the `assets.csv` file. Format it this way: `<genome>-<asset>`. This is how we match inputs to assets.
-
-Next you will need to fill in 3 columns:
-- `input_type` which is one of the following: *files*, *params* or *assets*
-- `intput_id` must match the recipe requirement. Again, use `refgenie build <genome>/<asset> -q` to learn the ids
-- `input_value` value for the input, e.g. URL in case of *files*
-
-### Step 3: See if you did it well!
-
-**Validate the PEP with [`eido`](http://eido.databio.org/en/latest/)**
-
-The command below validates the PEP aginst a remote schema. Any PEP issues will result in a `ValidationError`:
-
-```
-eido -p refgenie_build_cfg.yaml -s http://schema.databio.org/refgenie/refgenie_build.yaml
 ```
