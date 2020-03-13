@@ -1,21 +1,21 @@
-metadata:
-  sample_table: assets.csv
-  subsample_table: recipe_inputs.csv
-  output_dir: $GENOMES
-  pipeline_interfaces: refgenie_piface.yaml
+sample_table: assets.csv
+subsample_table: recipe_inputs.csv
+output_dir: $GENOMES
+pipeline_interfaces: refgenie_piface.yaml
 
-sample_name_template: "{{sample.genome}}-{{sample.asset}}"
+sample_modifiers:
+  append:
+    protocol: "refgenie"
+    local_input: "LOCAL_INPUT"
+    test: "TEST"
+    sample_name: "sn"
+  derive:
+    attributes: ['sample_name', 'local_input', 'test', "sample_name"]
+    sources:
+      sn: "{genome}-{asset}"
+      LOCAL_INPUT: "/project/shefflab/www/refgenie_raw/files.{genome}.{asset}."
+      TEST: "/Users/mstolarczyk/Uczelnia/UVA/code/example_peps/data/frog1*_data.txt"
 
-constant_attributes:
-  protocol: "refgenie"
-  local_input: "LOCAL_INPUT"
-
-derived_attributes: ['local_input']
-
-data_sources:
-  LOCAL_INPUT: "/project/shefflab/www/refgenie_raw/files.{genome}.{asset}."
-
-subprojects:
+amendments:
   getfiles:
-    metadata:
-      pipeline_interfaces: wget_piface.yaml
+    pipeline_interfaces: wget_piface.yaml
