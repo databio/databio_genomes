@@ -7,14 +7,12 @@ sample_modifiers:
   append:
     protocol: "refgenie"
     local_input: "LOCAL_INPUT"
-    test: "TEST"
     sample_name: "sn"
   derive:
-    attributes: ['sample_name', 'local_input', 'test', "sample_name"]
+    attributes: ['sample_name', 'local_input']
     sources:
       sn: "{genome}-{asset}"
       LOCAL_INPUT: "/project/shefflab/www/refgenie_raw/files.{genome}.{asset}."
-      TEST: "/Users/mstolarczyk/Uczelnia/UVA/code/example_peps/data/frog1*_data.txt"
 
 amendments:
   getfiles:
