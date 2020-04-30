@@ -1,25 +1,15 @@
-protocol_mapping:
-  "refgenie": refgenie
-
-pipelines:
-  refgenie:
-    name: refgenie
-    path: "refgenie build"
-    schema: pep_schema.yaml
-    resources:
-      default:
-        file_size: "0"
-        cores: "8"
-        mem: "40000"
-        time: "01-00:00:00"
-    command_template: >
-      { pipeline.path } { sample.genome }/{ sample.asset }
-      {%- if sample.input_value is defined -%}
-        {%- for it in sample.input_type -%}
-          {%- if it == 'files' -%}
-            {' --' + it + ' ' + sample.input_id[loop.index0] + '=' + sample.local_input + sample.input_id[loop.index0]}
-          {%- else -%}
-            {' --' + it + ' ' + sample.input_id[loop.index0] + '=' + sample.input_value[loop.index0]}
-          {%- endif -%}
-        {%- endfor -%}
-      {%- endif -%}
+pipeline_name: refgenie_build
+sample_pipeline:
+  name: refgenie
+  input_schema: $CODE/schema.databio.org/refgenie/refgenie_build.yaml
+  command_template: >
+    refgenie build { sample.genome }/{ sample.asset }
+    {%- if sample.input_value is defined -%}
+      {%- for it in sample.input_type -%}
+        {%- if it == 'files' -%}
+          {' --' + it + ' ' + sample.input_id[loop.index0] + '=' + sample.local_input + sample.input_id[loop.index0]}
+        {%- else -%}
+          {' --' + it + ' ' + sample.input_id[loop.index0] + '=' + sample.input_value[loop.index0]}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}

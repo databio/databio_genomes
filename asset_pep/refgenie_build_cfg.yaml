@@ -1,19 +1,21 @@
 sample_table: assets.csv
 subsample_table: recipe_inputs.csv
-output_dir: $GENOMES
-pipeline_interfaces: refgenie_piface.yaml
+looper:
+  output_dir: $GENOMES
 
 sample_modifiers:
   append:
-    protocol: "refgenie"
     local_input: "LOCAL_INPUT"
     sample_name: "sn"
+    pipeline_interfaces: refgenie_piface.yaml
   derive:
     attributes: ['sample_name', 'local_input']
     sources:
       sn: "{genome}-{asset}"
       LOCAL_INPUT: "/project/shefflab/www/refgenie_raw/files.{genome}.{asset}."
 
-amendments:
-  getfiles:
-    pipeline_interfaces: wget_piface.yaml
+project_modifiers:
+  amend:
+    getfiles:
+      looper:
+        pipeline_interfaces: wget_piface.yaml
