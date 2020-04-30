@@ -1,7 +1,7 @@
 pipeline_name: refgenie_build
 sample_pipeline:
   name: refgenie
-  input_schema: $CODE/schema.databio.org/refgenie/refgenie_build.yaml
+  input_schema: https://schema.databio.org/refgenie/refgenie_build.yaml
   command_template: >
     refgenie build { sample.genome }/{ sample.asset }
     {%- if sample.input_value is defined -%}
