@@ -44,7 +44,7 @@ Next you will need to fill in 3 columns:
 The command below validates the PEP aginst a remote schema. Any PEP issues will result in a `ValidationError`:
 
 ```
-eido -p refgenie_build_cfg.yaml -s http://schema.databio.org/refgenie/refgenie_build.yaml
+eido validate refgenie_build_cfg.yaml -s http://schema.databio.org/refgenie/refgenie_build.yaml
 ```
 
 
@@ -56,7 +56,7 @@ eido -p refgenie_build_cfg.yaml -s http://schema.databio.org/refgenie/refgenie_b
 Many of the assets require some input files, and we have to make sure we have those files locally. In the `recipe_inputs.csv` file, we have entered these files as remote URLs, so the first step is to download them. We have created a subproject called `getfiles` for this: To programmatically download all the files required by `refgenie build`, run from this directory using [looper](http://looper.databio.org):
 
 ```
-looper run refgenie_build_cfg.yaml --compute local --sp getfiles
+looper run refgenie_build_cfg.yaml -p local --amendments getfiles
 ```
 
 ### Step 2: Build assets
