@@ -1,13 +1,8 @@
-protocol_mapping:
-  "refgenie": wget
-
-pipelines:
-  wget:
-    name: wget
-    path: "wget"
-    command_template: >
-      {%- for itype in sample.input_type -%}
-        {%- if itype == 'files' -%}
-          {{ pipeline.path + ' -O ' + sample.local_input  + sample.input_id[loop.index0] + ' ' + sample.input_value[loop.index0] }}; 
-        {%- endif -%}
-      {%- endfor -%}
+pipeline_name: download_input_files
+sample_pipeline:
+  command_template: >
+    {%- for itype in sample.input_type -%}
+      {%- if itype == 'files' -%}
+        { 'wget -O ' + sample.local_input  + sample.input_id[loop.index0] + ' ' + sample.input_value[loop.index0] }; 
+      {%- endif -%}
+    {%- endfor -%}

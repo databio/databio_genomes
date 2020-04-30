@@ -17,5 +17,8 @@ sample_modifiers:
 project_modifiers:
   amend:
     getfiles:
-      looper:
-        pipeline_interfaces: wget_piface.yaml
+      sample_modifiers:
+        remove:
+          - pipeline_interfaces
+        append:
+          pipeline_interfaces: wget_piface.yaml
