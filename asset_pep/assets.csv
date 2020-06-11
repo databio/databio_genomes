@@ -184,3 +184,4 @@ mm10_primary,bwa_index
 hg38_mm10,fasta
 hg38_mm10,bowtie2_index
 hg38_mm10,bwa_index
+dm6,fasta
