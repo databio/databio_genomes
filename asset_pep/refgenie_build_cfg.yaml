@@ -2,6 +2,7 @@ sample_table: assets.csv
 subsample_table: recipe_inputs.csv
 looper:
   output_dir: $GENOMES
+  pipeline_interfaces: ../pi/pi_archive.yaml
 
 sample_modifiers:
   append:

@@ -1,0 +1,6 @@
+pipeline_name: refgenie_archive
+pipeline_type: project
+input_schema: https://schema.databio.org/refgenie/refgenie_build.yaml
+command_template: >
+  refgenieserver archive -c $REFGENIE 
+ 

@@ -1,6 +1,8 @@
 pipeline_name: refgenie_build
 pipeline_type: sample
 input_schema: https://schema.databio.org/refgenie/refgenie_build.yaml
+compute:
+  bulker_crate: databio/refgenie:0.7.3
 command_template: >
   refgenie build { sample.genome }/{ sample.asset }
   {%- if sample.input_value is defined -%}
