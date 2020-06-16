@@ -138,7 +138,7 @@ rn6,refgene_anno
 hg19,feat_annotation
 hg38,feat_annotation
 mm10,feat_annotation
-hg38,dbnfp
+hg38,dbnsfp
 hg38,dbsnp
 hg19,dbsnp
 hg19,salmon_partial_sa_index
