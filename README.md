@@ -2,7 +2,7 @@
 
 This repository contains the files to build and archive our labs's reference genome assets to serve with [`refgenieserver`](https://github.com/databio/refgenieserver) at http://refgenomes.databio.org. 
 
-The whole process is scripted, starting from this repository. From here, we download the input data (FASTA files, GTF files etc.), use `refgenie build` to create all of these assets in a local refgenie instance, and then use `refgenieserver archive` to build the server archives, and finally serve them with a refgenieserver instance by calling `refgenieserver serve`.
+The whole process is scripted, starting from this repository. From here, we download the input data (FASTA files, GTF files etc.), use `refgenie build` to create all of these assets in a local refgenie instance, and then use `refgenieserver archive` to build the server archives, and finally serve them with a refgenieserver instance.
 
 # Asset PEP
 
@@ -50,6 +50,30 @@ eido validate refgenie_build_cfg.yaml -s http://schema.databio.org/refgenie/refg
 
 
 ## Building assets using this PEP
+
+The outline of how to build and deploy these assets is:
+
+1. Download raw input files for assets
+2. Build assets with `refgenie build`
+3. Archive assets with `refgenieserver archive`
+4. Deploy assets to active server on AWS.
+
+### Setup
+
+```
+#export BASEDIR=$HOME/code/sandbox/refgenie_deploy
+#export REFGENIE_RAW=$BASEDIR/refgenie_raw
+export BASEDIR=$PROJECT/deploy/rg.databio.org
+export REFGENIE_RAW=/project/shefflab/www/refgenie_raw
+cd $BASEDIR
+git clone git@github.com:databio/databio_genomes.git
+```
+
+GENOMES points to pipeline output (referenced in the project config)
+
+```
+export GENOMES=$BASEDIR/genomes
+```
 
 ### Step 1: Download input files
 
