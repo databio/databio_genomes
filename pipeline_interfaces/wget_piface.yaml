@@ -9,5 +9,6 @@ command_template: >
         { 'wget -nc -O ' + sample.local_input  + sample.input_id[loop.index0] + ' ' + sample.input_value[loop.index0] }; 
       fi
     {%- endif -%}
+    
   {%- endfor -%}
   
