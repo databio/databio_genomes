@@ -3,6 +3,9 @@ pipeline_type: sample
 input_schema: https://schema.databio.org/refgenie/refgenie_build.yaml
 compute:
   bulker_crate: databio/refgenie:0.7.3
+  mem: 24000
+  cores: 4
+  time: 04:00:00
 command_template: >
   refgenie build { sample.genome }/{ sample.asset }
   {% if sample.genome_description is defined %}--genome-description { sample.genome_description }{% endif %}
