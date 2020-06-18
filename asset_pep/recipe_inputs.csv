@@ -40,10 +40,10 @@ mm10_primary-fasta,fasta,http://big.databio.org/refgenomes/mm10_primary.fa.gz,fi
 hg38_mm10-fasta,fasta,http://big.databio.org/refgenomes/hg38_mm10.fa.gz,files
 dm6-fasta,fasta,https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/215/GCF_000001215.4_Release_6_plus_ISO1_MT/GCF_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz,files
 hs38d1-fasta,fasta,http://big.databio.org/refgenomes/hs38d1.fa.gz,files
-hg38_noalt_decoy.fa.gz,fasta,http://big.databio.org/refgenomes/hg38_noalt_decoy.fa.gz,files
-hg38_chr22.fa.gz,fasta,http://big.databio.org/refgenomes/hs38_chr22.fa.gz,files
-human_repeats,fasta,http://big.databio.org/refgenomes/human_repeats.fa.gz,files
-human_alu,fasta,http://big.databio.org/refgenomes/human_alu.fa.gz,files
-human_alphasat,fasta,http://big.databio.org/refgenomes/human_alphasat.fa.gz,files
-human_rDNA,fasta,http://big.databio.org/refgenomes/human_rDNA.fa.gz,files
-mouse_chrM2x,fasta,http://big.databio.org/refgenomes/mouse_chrM2x.fa.gz,files
+hg38_noalt_decoy-fasta,fasta,http://big.databio.org/refgenomes/hg38_noalt_decoy.fa.gz,files
+hg38_chr22-fasta,fasta,http://big.databio.org/refgenomes/hs38_chr22.fa.gz,files
+human_repeats-fasta,fasta,http://big.databio.org/refgenomes/human_repeats.fa.gz,files
+human_alu-fasta,fasta,http://big.databio.org/refgenomes/human_alu.fa.gz,files
+human_alphasat-fasta,fasta,http://big.databio.org/refgenomes/human_alphasat.fa.gz,files
+human_rDNA-fasta,fasta,http://big.databio.org/refgenomes/human_rDNA.fa.gz,files
+mouse_chrM2x-fasta,fasta,http://big.databio.org/refgenomes/mouse_chrM2x.fa.gz,files
