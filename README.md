@@ -64,7 +64,6 @@ The outline of how to build and deploy these assets is:
 #export BASEDIR=$HOME/code/sandbox/refgenie_deploy
 #export REFGENIE_RAW=$BASEDIR/refgenie_raw
 export BASEDIR=$PROJECT/deploy/rg.databio.org
-export REFGENIE_RAW=/project/shefflab/www/refgenie_raw
 cd $BASEDIR
 git clone git@github.com:databio/databio_genomes.git
 ```
@@ -80,7 +79,10 @@ export GENOMES=$BASEDIR/genomes
 Many of the assets require some input files, and we have to make sure we have those files locally. In the `recipe_inputs.csv` file, we have entered these files as remote URLs, so the first step is to download them. We have created a subproject called `getfiles` for this: To programmatically download all the files required by `refgenie build`, run from this directory using [looper](http://looper.databio.org):
 
 ```
-looper run refgenie_build_cfg.yaml -p local --amend getfiles
+cd databio_genomes
+export REFGENIE_RAW=/project/shefflab/www/refgenie_raw
+mkdir -p $REFGENIE_RAW
+looper run asset_pep/refgenie_build_cfg.yaml -p local --amend getfiles
 ```
 
 ### Step 2: Build assets
@@ -88,7 +90,8 @@ looper run refgenie_build_cfg.yaml -p local --amend getfiles
 Once files are present locally, we can run `refgenie build` on each asset specified in the sample_table (`assets.csv`):
 
 ```
-looper run refgenie_build_cfg.yaml
+export REFGENIE=$BASEDIR/databio_genomes/config/master.yaml
+looper run asset_pep/refgenie_build_cfg.yaml -p bulker_slurm -d --limit 2
 ```
 
 This will create one job for each *asset*.
@@ -101,7 +104,22 @@ Assets are built locally now, but to serve them, we must archive them using `ref
 refgenieserver archive -c <path/to/genomes.yaml>
 ```
 
-Since the archivization process is generally lengthy, it makes sense to submit this job to the cluster. Since you have [divvy](http://divvy.databio.org/en/latest/) installed (with looper), you can easily create a SLURM submission script with `divvy write`:
+
+
+Since the archive process is generally lengthy, it makes sense to submit this job to the cluster. Since you have [divvy](http://divvy.databio.org/en/latest/) installed (with looper), you can easily create a SLURM submission script with `divvy write`:
+
+```
+looper runp asset_pep/refgenie_build_cfg.yaml -p local
+export REFGENIE_ARCHIVE=$GENOMES/archive
+
+```
+
+Now we'll sync to aws. Use the refgenie credentials (here added with `--profile refgenie`, which should be preconfigured with `aws configure`)
+
+```
+aws s3 sync $REFGENIE_ARCHIVE s3://cloud.databio.org/refgenie --profile refgenie
+```
+
 
 ```
 divvy write -o archive_job.sbatch --code 'refgenieserver archive -c <path/to/genomes.yaml>' ...
