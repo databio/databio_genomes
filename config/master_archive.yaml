@@ -64,3 +64,39 @@ genomes:
             asset_children: []
         default_tag: default
     genome_digest: 52c0a74bf4afa6dcfc96531f9f1215f270a014421e0f3852
+  hg38:
+    assets:
+      fasta:
+        asset_description: DNA sequences in the FASTA format, indexed FASTA (produced with samtools index) and chromosome sizes file
+        default_tag: default
+        tags:
+          default:
+            asset_path: fasta
+            seek_keys:
+              fasta: hg38.fa
+              fai: hg38.fa.fai
+              chrom_sizes: hg38.chrom.sizes
+            archive_digest: 01d1538c3b6cc9e2822c6565a8110c3f
+            archive_size: 832.5MB
+            asset_size: 2.9GB
+            asset_parents: []
+            asset_children: []
+            asset_digest: 59fed5ec3c3a95bc5709b24b8f2cf7bf
+  rCRSd:
+    assets:
+      fasta:
+        asset_description: DNA sequences in the FASTA format, indexed FASTA (produced with samtools index) and chromosome sizes file
+        default_tag: default
+        tags:
+          default:
+            asset_path: fasta
+            seek_keys:
+              fasta: rCRSd.fa
+              fai: rCRSd.fa.fai
+              chrom_sizes: rCRSd.chrom.sizes
+            archive_digest: 42c486ac03a81cfb4f91e073176443f4
+            archive_size: 8.6KB
+            asset_size: 38.8KB
+            asset_parents: []
+            asset_children: []
+            asset_digest: 4eb430296bc02ed7e4006624f1d5ac53
