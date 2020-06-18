@@ -1,6 +1,6 @@
 sample_name,input_id,input_value,input_type
-rCRSd-fasta,fasta,http://big.databio.org/refgenie_raw/rCRSd.fa.gz,files
-hg18-fasta,fasta,http://big.databio.org/refgenie_raw/hg18.fa.gz,files
+rCRSd-fasta,fasta,http://big.databio.org/refgenomes/rCRSd.fa.gz,files
+hg18-fasta,fasta,http://big.databio.org/refgenomes/hg18.fa.gz,files
 hg38-fasta,fasta,ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.gz,files
 hg38-fasta_txome,fasta,ftp://ftp.ensembl.org/pub/release-97/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz,files
 hg38_cdna-fasta,fasta,ftp://ftp.ensembl.org/pub/release-97/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz,files
